@@ -1,0 +1,37 @@
+.hero {
+    position: relative; /* Positioning context for absolute positioning of overlay */
+    height: 500px; /* Set the height of the hero section */
+    background-image: url('HeroImage.jpg'); /* Replace 'path/to/your/image.jpg' with the path to your background image */
+    background-size: cover; /* Cover the entire container with the background image */
+    background-position: center; /* Center the background image */
+    color: #fff; /* Text color */
+  }
+  
+  .hero__overlay {
+    position: absolute; /* Position the overlay absolutely within the hero section */
+    top: 0; /* Position the overlay at the top of the hero section */
+    left: 0; /* Position the overlay at the left of the hero section */
+    width: 100%; /* Make the overlay span the entire width of the hero section */
+    height: 100%; /* Make the overlay span the entire height of the hero section */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  }
+  
+  .container {
+    position: relative; /* Positioning context for absolute positioning of content */
+    height: 100%; /* Make the container span the entire height of the hero section */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+  }
+  
+  .hero__title {
+    font-size: 36px; /* Adjust font size */
+    margin-bottom: 20px; /* Add space between title and subtitle */
+  }
+  
+  .hero__subtitle {
+    font-size: 18px; /* Adjust font size */
+  }
+  

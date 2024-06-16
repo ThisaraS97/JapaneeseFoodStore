@@ -1,0 +1,49 @@
+.gallery {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.gallery__arrow {
+  position: absolute;
+  top: 50%;
+  font-size: calc(1/10 * 100vw); /* Set arrow size to be 1/5 of viewport width */
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: #333;
+  transform: translateY(-50%);
+}
+
+.gallery__prev {
+  left: 0;
+}
+
+.gallery__next {
+  right: 0;
+}
+
+.gallery__image-container {
+  display: flex;
+  position: relative;
+}
+
+.gallery__image-wrapper {
+  flex: 1;
+  position: relative;
+  margin-right: 10px; /* Add margin to create space between images */
+}
+
+.gallery__image-wrapper img {
+  max-width: 100%; /* Ensure images do not exceed container width */
+  max-height: 100%; /* Ensure images do not exceed container height */
+  width: auto; /* Allow images to adjust width while maintaining aspect ratio */
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease; /* Add transition for smooth animation */
+}
+
+.gallery__image-wrapper img.active {
+  opacity: 1;
+}

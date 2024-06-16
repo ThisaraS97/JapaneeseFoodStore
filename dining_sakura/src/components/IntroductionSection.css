@@ -1,0 +1,16 @@
+/* Introduction Section */
+.introduction {
+    padding: 50px 0; /* Add padding at the top and bottom */
+    background-color: #f8f8f8; /* Light gray background color */
+  }
+  
+  .introduction__title {
+    font-size: 32px; /* Adjust font size */
+    margin-bottom: 20px; /* Add space between title and description */
+  }
+  
+  .introduction__description {
+    font-size: 18px; /* Adjust font size */
+    line-height: 1.5; /* Increase line height for better readability */
+  }
+  
