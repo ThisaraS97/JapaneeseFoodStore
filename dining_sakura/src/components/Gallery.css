@@ -1,49 +1,107 @@
+/* Gallery container */
 .gallery {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden; /* Hide images that are outside the container */
 }
 
+/* Navigation arrows */
 .gallery__arrow {
   position: absolute;
   top: 50%;
-  font-size: calc(1/10 * 100vw); /* Set arrow size to be 1/5 of viewport width */
+  font-size: calc(1/10 * 100vw); /* Set arrow size */
   background: none;
   border: none;
   cursor: pointer;
   outline: none;
   color: #333;
   transform: translateY(-50%);
+  z-index: 10;
 }
 
+/* Position arrows */
 .gallery__prev {
-  left: 0;
+  left: 10px;
 }
 
 .gallery__next {
-  right: 0;
+  right: 10px;
 }
 
+/* Container for images */
 .gallery__image-container {
   display: flex;
-  position: relative;
+  transition: transform 0.5s ease; /* Smooth transition for sliding */
 }
 
+/* Wrapper for each image */
 .gallery__image-wrapper {
-  flex: 1;
+  flex: 0 0 calc(100% / 3); /* Show 3 images at once by default */
   position: relative;
-  margin-right: 10px; /* Add margin to create space between images */
+  margin-right: 10px; /* Space between images */
+  transition: transform 0.3s ease; /* Smooth transition */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
 }
 
+/* Style for the images */
 .gallery__image-wrapper img {
-  max-width: 100%; /* Ensure images do not exceed container width */
-  max-height: 100%; /* Ensure images do not exceed container height */
-  width: auto; /* Allow images to adjust width while maintaining aspect ratio */
+  width: 100%; /* Ensure image fills the container */
   height: auto;
+  object-fit: cover; /* Ensure images cover the container */
   display: block;
-  transition: transform 0.3s ease; /* Add transition for smooth animation */
+  border-radius: 10px; /* Optional: rounded corners */
+  transition: transform 0.3s ease;
 }
 
-.gallery__image-wrapper img.active {
-  opacity: 1;
+/* Style for the active (middle) image */
+.gallery__image-wrapper.active img {
+  transform: scale(1.2); /* Scale up the middle image */
+  opacity: 1; /* Make the middle image more prominent */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Responsive Behavior: Screens smaller than 1200px */
+@media (max-width: 1200px) {
+  .gallery__image-wrapper {
+    flex: 0 0 calc(100% / 2); /* Show 2 images at once */
+  }
+  .gallery__arrow {
+    font-size: calc(1/12 * 100vw); /* Adjust arrow size */
+  }
+}
+
+/* Responsive Behavior: Screens smaller than 768px (Tablets/Small screens) */
+@media (max-width: 768px) {
+  .gallery__image-wrapper {
+    flex: 0 0 100%; /* Show 1 image at a time */
+  }
+
+  .gallery__arrow {
+    font-size: calc(1/15 * 100vw); /* Adjust arrow size */
+  }
+
+  .gallery__image-wrapper img {
+    height: 200px; /* Adjust image height on smaller screens */
+  }
+}
+
+/* Responsive Behavior: Screens smaller than 480px (Mobile devices) */
+@media (max-width: 480px) {
+  .gallery__image-wrapper {
+    flex: 0 0 100%; /* Show 1 image at a time */
+  }
+
+  .gallery__arrow {
+    font-size: calc(1/16 * 100vw); /* Adjust arrow size for smaller screens */
+  }
+
+  .gallery__image-wrapper img {
+    height: 150px; /* Further reduce image height on mobile screens */
+  }
 }
