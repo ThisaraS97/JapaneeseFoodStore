@@ -39,7 +39,7 @@ const Gallery = () => {
       <div className="gallery__image-container">
         {displayedImages.map((image, index) => (
           <div key={index} className="gallery__image-wrapper" style={{ transform: `translateX(${index === 0 ? 0 : -100 * index}%)` }}>
-            <img src={image} alt={`Image ${startIndex + index + 1}`} />
+            <img src={image} alt={`Gallery item ${startIndex + index + 1}`} />
           </div>
         ))}
       </div>
