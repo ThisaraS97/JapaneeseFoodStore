@@ -6,7 +6,7 @@ import './Header.css';
 
 const Header = () => {
   const { language, setLanguage } = useLanguage(); // Access the selected language and language setter
-  const { isDarkMode, toggleTheme } = useTheme(); // Access the current theme and theme toggle function
+  const { isDarkMode } = useTheme(); // Access the current theme and theme toggle function
   const [showContactPopup, setShowContactPopup] = React.useState(false); // State to control the display of the Contact Us popup
 
   const handleLanguageChange = (lang) => {

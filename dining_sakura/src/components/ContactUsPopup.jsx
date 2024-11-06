@@ -39,6 +39,7 @@ const ContactUsPopup = ({ onClose }) => {
         <p>{language === 'en' ? 'Land Number:' : '土地の番号:'} +8123456789</p>
         <div className="contact-us-popup__map">
           <iframe
+            title="Tokyo Location Map" // Add a unique title for accessibility
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.2187746201146!2d139.69170641557378!3d35.68948738018933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188e5b7a167239%3A0x30df5e27d02284e!2sTokyo%2C%20Japan!5e0!3m2!1sen!2suk!4v1643412182487!5m2!1sen!2suk"
             width="100%"
             height="300"
