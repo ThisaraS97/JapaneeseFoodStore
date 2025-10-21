@@ -1,15 +1,338 @@
 .about-us {
-    padding: 50px 0;
-    background-color: #f8f8f8;
+  position: relative;
+  padding: 100px 0;
+  background-color: var(--background);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+.about-us__pattern {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='8' viewBox='0 0 120 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v8H0zm20 0h20v8H20zm20 0h20v8H40zm20 0h20v8H60zm20 0h20v8H80zm20 0h20v8h-20z' fill='%23d14b4b' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.about-us__japanese-symbol {
+  position: absolute;
+  font-family: 'Zen Maru Gothic', serif;
+  opacity: 0.04;
+  font-size: 20rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  z-index: 0;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.about-us__japanese-symbol--top-right {
+  top: -40px;
+  right: 40px;
+}
+
+.about-us__japanese-symbol--bottom-left {
+  bottom: 0;
+  left: 40px;
+}
+
+.about-us__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-us__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.about-us__title {
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  position: relative;
+  display: inline-block;
+}
+
+.about-us__title-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.about-us__title-decoration--left,
+.about-us__title-decoration--right {
+  display: block;
+  height: 1px;
+  width: 80px;
+  background-color: var(--accent-color);
+  opacity: 0.6;
+}
+
+.about-us__title-decoration--circle {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+
+.about-us__content {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-us__image-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.about-us__image {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.about-us__image--main {
+  width: 100%;
+  height: 500px;
+  background-image: url('https://images.unsplash.com/photo-1617196034183-421b4f8e9f67?ixlib=rb-4.0.3');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+.about-us__image--accent {
+  width: 200px;
+  height: 200px;
+  background-image: url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3');
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  border: 4px solid var(--background);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.about-us__text-content {
+  flex: 1;
+}
+
+.about-us__subtitle {
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.about-us__subtitle::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  width: 4px;
+  height: 70%;
+  transform: translateY(-50%);
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+.about-us__paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.about-us__values {
+  display: flex;
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.about-us__value-item {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  background-color: var(--card-background);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-us__value-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.about-us__value-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.about-us__value-title {
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.about-us__value-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.about-us__quote {
+  margin: 40px 0;
+  padding: 30px;
+  background-color: var(--card-background);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 0 8px 8px 0;
+}
+
+.about-us__quote blockquote {
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0 0 15px 0;
+}
+
+.about-us__quote cite {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-style: normal;
+  font-weight: 600;
+  display: block;
+  text-align: right;
+}
+
+.about-us__cta {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.about-us__button {
+  display: inline-block;
+  padding: 14px 30px;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(209, 75, 75, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-us__button::after {
+  content: '';
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.about-us__button:hover {
+  background-color: #c23c3c;
+  transform: translateY(-2px);
+}
+
+.about-us__button:hover::after {
+  left: 100%;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 992px) {
+  .about-us__content {
+    flex-direction: column;
+  }
+  
+  .about-us__image-wrapper {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  
+  .about-us__values {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-us {
+    padding: 60px 0;
   }
   
   .about-us__title {
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 2.4rem;
   }
   
-  .about-us__description {
-    font-size: 18px;
-    line-height: 1.5;
+  .about-us__subtitle {
+    font-size: 1.5rem;
   }
   
+  .about-us__image--main {
+    height: 350px;
+  }
+  
+  .about-us__image--accent {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .about-us__japanese-symbol {
+    font-size: 14rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-us__title {
+    font-size: 2rem;
+  }
+  
+  .about-us__subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .about-us__image--accent {
+    width: 120px;
+    height: 120px;
+    bottom: -20px;
+    right: -10px;
+  }
+  
+  .about-us__japanese-symbol {
+    font-size: 10rem;
+  }
+  
+  .about-us__title-decoration--left,
+  .about-us__title-decoration--right {
+    width: 50px;
+  }
+}
