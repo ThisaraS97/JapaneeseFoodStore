@@ -1,37 +1,260 @@
 .hero {
-    position: relative; /* Positioning context for absolute positioning of overlay */
-    height: 500px; /* Set the height of the hero section */
-    background-image: url('HeroImage.jpg'); /* Replace 'path/to/your/image.jpg' with the path to your background image */
-    background-size: cover; /* Cover the entire container with the background image */
-    background-position: center; /* Center the background image */
-    color: #fff; /* Text color */
+  position: relative;
+  height: 85vh;
+  background-image: url('HeroImage.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Japanese pattern overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__content {
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 1.2s ease-out;
+}
+
+/* Japanese-inspired decorative elements */
+.hero__content::before, .hero__content::after {
+  content: "桜";
+  position: absolute;
+  font-size: 120px;
+  opacity: 0.1;
+  color: #fff;
+  font-family: 'Zen Maru Gothic', serif;
+  z-index: -1;
+}
+
+.hero__content::before {
+  top: -80px;
+  left: -60px;
+  transform: rotate(-15deg);
+}
+
+.hero__content::after {
+  bottom: -80px;
+  right: -60px;
+  transform: rotate(15deg);
+}
+
+.hero__title {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  font-family: 'Zen Maru Gothic', serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: inline-block;
+}
+
+/* Japanese-inspired underline */
+.hero__title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary-color, #8E354A);
+  border-radius: 2px;
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  font-weight: 300;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.hero__cta {
+  margin-top: 30px;
+  animation: bounceIn 1s ease 0.5s both;
+}
+
+.hero__button {
+  background-color: var(--primary-color, #8E354A);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__button:hover {
+  background-color: var(--secondary-color, #F7C242);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero__button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Japanese-inspired ripple effect */
+.hero__button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.hero__button:focus:not(:active)::after {
+  animation: ripple 0.8s ease-out;
+}
+
+/* Scroll indicator */
+.hero__scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hero__scroll-text {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.hero__scroll-icon {
+  width: 30px;
+  height: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__scroll-icon::before {
+  content: '';
+  width: 4px;
+  height: 10px;
+  background-color: white;
+  border-radius: 2px;
+  position: absolute;
+  top: 10px;
+  animation: scrollDown 2s infinite;
+}
+
+@keyframes scrollDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .hero__overlay {
-    position: absolute; /* Position the overlay absolutely within the hero section */
-    top: 0; /* Position the overlay at the top of the hero section */
-    left: 0; /* Position the overlay at the left of the hero section */
-    width: 100%; /* Make the overlay span the entire width of the hero section */
-    height: 100%; /* Make the overlay span the entire height of the hero section */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  50% {
+    opacity: 1;
   }
-  
-  .container {
-    position: relative; /* Positioning context for absolute positioning of content */
-    height: 100%; /* Make the container span the entire height of the hero section */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Arrange items vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    text-align: center; /* Center text */
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(20) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
   }
   
   .hero__title {
-    font-size: 36px; /* Adjust font size */
-    margin-bottom: 20px; /* Add space between title and subtitle */
+    font-size: 3rem;
   }
   
   .hero__subtitle {
-    font-size: 18px; /* Adjust font size */
+    font-size: 1.2rem;
   }
+}
   

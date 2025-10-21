@@ -1,16 +1,202 @@
-/* Introduction Section */
+/* Introduction Section - Modern Japanese Style */
 .introduction {
-    padding: 50px 0; /* Add padding at the top and bottom */
-    background-color: #f8f8f8; /* Light gray background color */
+  padding: 100px 0;
+  background-color: var(--bg-color, #FCFAF2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Japanese-inspired background pattern */
+.introduction__pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/svg%3E");
+}
+
+.dark .introduction__pattern {
+  opacity: 0.03;
+}
+
+.introduction__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.introduction__text {
+  flex: 1;
+  text-align: left;
+}
+
+.introduction__visual {
+  flex: 1;
+  position: relative;
+}
+
+.introduction__title {
+  font-size: 2.5rem;
+  font-family: 'Zen Maru Gothic', serif;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  color: var(--primary-color, #8E354A);
+}
+
+/* Japanese-inspired decorative element */
+.introduction__title::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary-color, #8E354A);
+}
+
+.introduction__subtitle {
+  font-size: 1.1rem;
+  color: var(--tertiary-color, #5A8F7B);
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.introduction__description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: var(--text-color, #1A1A1A);
+}
+
+.introduction__feature-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.introduction__feature {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.introduction__feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--secondary-color, #F7C242);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.introduction__feature-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Image grid styling */
+.introduction__image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 15px;
+  height: 450px;
+}
+
+.introduction__image-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.introduction__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.introduction__image:hover {
+  transform: scale(1.05);
+}
+
+/* Different sizes for the grid */
+.introduction__image-wrapper:nth-child(1) {
+  grid-row: span 2;
+}
+
+/* Japanese decorative elements */
+.introduction__japanese-symbol {
+  position: absolute;
+  font-family: 'Zen Maru Gothic', serif;
+  color: var(--primary-color, #8E354A);
+  opacity: 0.1;
+  font-size: 120px;
+  z-index: -1;
+}
+
+.introduction__japanese-symbol--top-right {
+  top: -40px;
+  right: -20px;
+}
+
+.introduction__japanese-symbol--bottom-left {
+  bottom: -40px;
+  left: -20px;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .introduction__container {
+    flex-direction: column;
   }
   
-  .introduction__title {
-    font-size: 32px; /* Adjust font size */
-    margin-bottom: 20px; /* Add space between title and description */
+  .introduction__text {
+    text-align: center;
+    order: 1;
   }
   
-  .introduction__description {
-    font-size: 18px; /* Adjust font size */
-    line-height: 1.5; /* Increase line height for better readability */
+  .introduction__visual {
+    order: 0;
+    margin-bottom: 40px;
   }
+  
+  .introduction__title::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .introduction__feature-list {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .introduction {
+    padding: 60px 0;
+  }
+  
+  .introduction__feature-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .introduction__image-grid {
+    height: 350px;
+  }
+}
   
