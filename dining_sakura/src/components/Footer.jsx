@@ -1,11 +1,13 @@
 import React from 'react';
 import './Footer.css';
 import { useLanguage } from '../LanguageContext';
-import { useTheme } from '../ThemeContext';
+// Removed unused import: useTheme
+// import { useTheme } from '../ThemeContext';
 
 const Footer = () => {
   const { language, setLanguage } = useLanguage();
-  const { isDarkMode, toggleTheme } = useTheme();
+  // Removed unused variables: isDarkMode and toggleTheme
+  // const { isDarkMode, toggleTheme } = useTheme();
 
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
@@ -25,16 +27,16 @@ const Footer = () => {
                 : '現代的な雰囲気の中で本格的な日本料理を、伝統と現代の料理技術を融合させて提供します。'}
             </p>
             <div className="footer__social">
-              <a href="#" className="footer__social-link">
+              <a href="https://facebook.com" aria-label="Facebook" className="footer__social-link">
                 <span className="footer__social-icon">📱</span>
               </a>
-              <a href="#" className="footer__social-link">
+              <a href="https://instagram.com" aria-label="Instagram" className="footer__social-link">
                 <span className="footer__social-icon">📸</span>
               </a>
-              <a href="#" className="footer__social-link">
+              <a href="https://twitter.com" aria-label="Twitter" className="footer__social-link">
                 <span className="footer__social-icon">🐦</span>
               </a>
-              <a href="#" className="footer__social-link">
+              <a href="https://youtube.com" aria-label="YouTube" className="footer__social-link">
                 <span className="footer__social-icon">📺</span>
               </a>
             </div>

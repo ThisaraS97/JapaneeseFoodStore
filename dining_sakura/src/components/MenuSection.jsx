@@ -6,12 +6,14 @@ import Rice from './Rice.jpg';
 import Kaiseki from './Kaiseki.jpg';
 import Shabushabu from './Shabu-shabu.jpg';
 import { useLanguage } from '../LanguageContext';
-import { useTheme } from '../ThemeContext';
+// Removed unused import: useTheme
+// import { useTheme } from '../ThemeContext';
 import './MenuSection.css';
 
 const MenuSection = () => {
   const { language } = useLanguage();
-  const { theme } = useTheme();
+  // Removed unused variable: theme
+  // const { theme } = useTheme();
   const [activeCategory, setActiveCategory] = useState('all');
 
   // Define menu items with categories

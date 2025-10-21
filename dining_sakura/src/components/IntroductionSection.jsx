@@ -1,11 +1,13 @@
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
-import { useTheme } from '../ThemeContext';
+// Removed unused import: useTheme 
+// import { useTheme } from '../ThemeContext';
 import './IntroductionSection.css';
 
 const IntroductionSection = () => {
   const { language } = useLanguage();
-  const { theme } = useTheme();
+  // Removed unused variable: theme
+  // const { theme } = useTheme();
 
   return (
     <section className="introduction" id="intro">

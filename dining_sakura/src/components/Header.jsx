@@ -6,7 +6,7 @@ import './Header.css';
 
 const Header = () => {
   const { language, setLanguage } = useLanguage();
-  const { isDarkMode, toggleTheme, theme } = useTheme();
+  const { isDarkMode, toggleTheme } = useTheme(); // Removed unused theme variable
   const [showContactPopup, setShowContactPopup] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   
