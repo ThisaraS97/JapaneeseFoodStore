@@ -22,9 +22,11 @@ const AboutUs = () => {
         </div>
 
         <div className="about-us__content">
-          <div className="about-us__image-wrapper">
-            <div className="about-us__image about-us__image--main"></div>
-            <div className="about-us__image about-us__image--accent"></div>
+          <div className="about-us__image-container">
+            <div className="about-us__image-wrapper">
+              <div className="about-us__image about-us__image--main"></div>
+              <div className="about-us__image about-us__image--accent"></div>
+            </div>
           </div>
           
           <div className="about-us__text-content">

@@ -1,3 +1,73 @@
+.gallery-section {
+  position: relative;
+  padding: 80px 0;
+  background-color: var(--background);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+.gallery-section::before {
+  content: '写';
+  position: absolute;
+  font-family: 'Zen Maru Gothic', serif;
+  font-size: 20rem;
+  opacity: 0.03;
+  top: 0;
+  left: 50px;
+  color: var(--accent-color);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gallery-section::after {
+  content: '真';
+  position: absolute;
+  font-family: 'Zen Maru Gothic', serif;
+  font-size: 20rem;
+  opacity: 0.03;
+  bottom: 0;
+  right: 50px;
+  color: var(--accent-color);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gallery__header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery__title {
+  font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.gallery__title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.gallery__description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 /* Gallery container */
 .gallery {
   position: relative;
@@ -6,29 +76,45 @@
   justify-content: center;
   width: 100%;
   overflow: hidden; /* Hide images that are outside the container */
+  margin-top: 40px;
+  padding: 20px 0;
 }
 
 /* Navigation arrows */
 .gallery__arrow {
   position: absolute;
   top: 50%;
-  font-size: calc(1/10 * 100vw); /* Set arrow size */
-  background: none;
-  border: none;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
   cursor: pointer;
   outline: none;
-  color: #333;
+  color: var(--text-primary);
   transform: translateY(-50%);
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.gallery__arrow:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
 }
 
 /* Position arrows */
 .gallery__prev {
-  left: 10px;
+  left: 20px;
 }
 
 .gallery__next {
-  right: 10px;
+  right: 20px;
 }
 
 /* Container for images */
@@ -55,15 +141,19 @@
   height: auto;
   object-fit: cover; /* Ensure images cover the container */
   display: block;
-  border-radius: 10px; /* Optional: rounded corners */
-  transition: transform 0.3s ease;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  border: 2px solid transparent;
 }
 
 /* Style for the active (middle) image */
 .gallery__image-wrapper.active img {
   transform: scale(1.2); /* Scale up the middle image */
   opacity: 1; /* Make the middle image more prominent */
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border: 2px solid var(--accent-color);
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* Responsive Behavior: Screens smaller than 1200px */
